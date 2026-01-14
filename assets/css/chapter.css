@@ -1,0 +1,120 @@
+#header h1{
+	font-size: 36px;
+}
+
+#header h2{
+	font-size: 16px;
+	padding: 10px;
+}
+
+#header p{
+	font-size: 26px;
+}
+
+#tabs{
+	background-color: #E6E6E6;
+	background-image: url("images/overlay.png"), url("images/overlay.png");
+	background-position: top left, top left, center center;
+	background-repeat: repeat, repeat, no-repeat;
+	background-size: auto, auto, cover;
+	z-index: 1;
+}
+#tabs a{
+	color: black;
+}
+
+#tabs p{
+	color: black;
+}
+
+#tabs h1{
+	color: black;
+}
+
+#tabs h2{
+	color: #848484;
+}
+
+/* Desktop */
+@media screen and (min-width: 737px){
+	#tabs{
+		width: 80%;
+		height: auto;
+	}
+	
+	#tabs a{
+		font-size: 18px;
+	}
+	
+	#tabs p{
+		font-size: 18px;
+		padding-left: 50px;
+	}
+	
+	#tabs h1{
+		font-size: 26px;
+		padding-left: 50px;
+	}
+	
+	#tabs h2{
+		font-size: 18px;
+		padding-left: 50px;
+	}
+}/* Desktop */
+
+/* Tablet */
+@media screen and (min-width: 737px) and (max-width: 1200px){
+	#tabs{
+		width: 80%;
+		height: auto;
+	}
+	
+	#tabs a{
+		font-size: 18px;
+	}
+	
+	#tabs p{
+		font-size: 16px;
+	}
+	
+	#tabs h1{
+		font-size: 24px;
+	}
+	
+	#tabs h2{
+		font-size: 16px;
+	}
+}/* Tablet */
+
+/* Mobile */
+#navPanel, #titleBar{
+	display: none;
+}
+
+@media screen and (max-width: 736px){
+	#main-wrapper{
+		padding-top: 80px;
+	}
+	
+	#tabs{
+		width: 90%;
+		height: auto;
+	}
+	
+	#tabs a{
+		font-size: 16px;
+		padding-top: 10px;
+	}
+	
+	#tabs p{
+		font-size: 12px;
+	}
+	
+	#tabs h1{
+		font-size: 18px;
+	}
+	
+	#tabs h2{
+		font-size: 12px;
+	}
+}/* Mobile */

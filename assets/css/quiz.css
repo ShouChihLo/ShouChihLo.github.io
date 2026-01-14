@@ -1,0 +1,68 @@
+.btn-primary{
+	border-radius: 9px;
+	background-color: #D8D8D8;
+	color: #333;
+	border-color: #adadad;
+	padding: 10px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active{
+	background-color: #b1ddab;
+	border-color: #167C09;
+ }
+
+#header h1{
+	font-size: 36px;
+}
+
+#header h2{
+	font-size: 16px;
+	padding: 10px;
+}
+
+#header p{
+	font-size: 26px;
+}
+
+/* Desktop */
+@media screen and (min-width: 737px){
+	#main-wrapper h2{
+		font-size: 28px;
+		padding: 60px 0 30px 200px;
+	}
+	
+	#button-group{
+		width: 80%;
+		height: auto;
+		margin: auto;
+	}
+	
+	#button-group a{
+		font-size: 18px;
+	}
+}/* Desktop */
+
+/* Tablet */
+@media screen and (min-width: 737px) and (max-width: 1200px){
+	#button-group a{
+		font-size: 16px;
+	}
+}/* Tablet */
+
+/* Mobile */
+#navPanel, #titleBar{
+	display: none;
+}
+
+@media screen and (max-width: 736px){
+	#main-wrapper{
+		padding-top: 80px;
+	}
+	
+	#button-group a{
+		font-size: 12px;
+	}
+}/* Mobile */

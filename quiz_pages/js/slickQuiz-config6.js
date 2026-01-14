@@ -1,0 +1,349 @@
+// Setup your quiz text and questions here
+
+// NOTE: pay attention to commas, IE struggles with those bad boys
+
+var quizJSON = {
+    "info": {
+        "name":    "第六章 線上測驗",
+        "main":    "<p>網際網路</p>",
+        "results": "<h5>NDHU</h5><p>Reference_GitHub_SlickQuiz(https://github.com/jewlofthelotus/SlickQuiz)</p>",
+        "level1":  "計算機概論 專家",
+        "level2":  "計算機概論 業餘",
+        "level3":  "計算機概論 入門",
+        "level4":  "計算機概論 新手",
+        "level5":  "請認真學習..." // no comma here
+    },
+    "questions": [
+        { // Question 1 - Multiple Choice, Single True Answer
+            "q": "非對稱式數位用戶專線是”是目前寬頻上網的選擇之一，請問其簡稱為何？?",
+            "a": [
+                {"option": "Cable modem ",      "correct": false},
+                {"option": "Fixed network",     "correct": false},
+                {"option": "ADSL",      "correct": true},
+                {"option": "Modem",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> ADSL.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : ADSL.</p>" // no comma here
+        },
+        { // Question 2 - Multiple Choice, Single True Answer
+            "q": "下列何者是星狀拓撲的連接方式?",
+            "a": [
+                {"option": "網路上的所有工作站都與一個中央控制器連接",      "correct": true},
+                {"option": "網路上的所有工作站都直接與一個共同的通道連接",   "correct": false},
+                {"option": "網路上的所有工作站都是一部接一部的連接",    "correct": false},
+                {"option": "網路上的所有工作站都彼此獨立", "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 網路上的所有工作站都與一個中央控制器連接.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 網路上的所有工作站都與一個中央控制器連接.</p>" // no comma here
+        },
+        { // Question 3 - Multiple Choice, Single True Answer
+            "q": "下列何者不是網路連線的線材?",
+            "a": [
+                {"option": "雙絞線快",      "correct": false},
+                {"option": "光纖",     "correct": false},
+                {"option": "單芯電線",      "correct": true},
+                {"option": "同軸電纜",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 單芯電線.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 單芯電線.</p>" // no comma here
+        },
+        { // Question 4 - Multiple Choice, Single True Answer
+            "q": "列何者不是TCP/IP協定中所訂定的層架構之一?",
+            "a": [
+                {"option": "應用層",      "correct": false},
+                {"option": "傳輸層",     "correct": false},
+                {"option": "網路層",      "correct": false},
+                {"option": "虛擬層",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 虛擬層.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 虛擬層.</p>" // no comma here
+        },
+        { // Question 5 - Multiple Choice, Single True Answer
+            "q": "TCP/IP是一種?",
+            "a": [
+                {"option": "網路周邊設備",      "correct": false},
+                {"option": "網路伺服器",     "correct": false},
+                {"option": "網路作業系統",      "correct": false},
+                {"option": "網路通訊協定",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 網路通訊協定.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 網路通訊協定.</p>" // no comma here
+        },
+		{ // Question 6 - Multiple Choice, Single True Answer
+            "q": "下列何者不為UDP協定的特性？",
+            "a": [
+                {"option": "可靠性低",      "correct": false},
+                {"option": "傳送速度比TCP協定快",     "correct": false},
+                {"option": "非連線導向",      "correct": false},
+                {"option": "封包發送與接收順序一定相同",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 封包發送與接收順序一定相同.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 封包發送與接收順序一定相同.</p>" // no comma here
+        },
+		{ // Question 7 - Multiple Choice, Single True Answer
+            "q": "下列何者不是TCP協定的特性？",
+            "a": [
+                {"option": "連線導向",      "correct": false},
+                {"option": "傳送速度比UDP協定快",     "correct": true},
+                {"option": "可靠性強",      "correct": false},
+                {"option": "適合高準確性的資料傳送",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 傳送速度比UDP協定快.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 傳送速度比UDP協定快.</p>" // no comma here
+        },
+		{ // Question 8 - Multiple Choice, Single True Answer
+            "q": "資料通訊中，計算機之間為相互交換資訊的格式和內容而定規則，稱為？",
+            "a": [
+                {"option": "通訊協定",      "correct": true},
+                {"option": "通訊線路",     "correct": false},
+                {"option": "區域網路",      "correct": false},
+                {"option": "數據機二問答題",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 通訊協定.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 通訊協定.</p>" // no comma here
+        },
+		{ // Question 9 - Multiple Choice, Single True Answer
+            "q": "下列IP位址的寫法，何者正確",
+            "a": [
+                {"option": "168.95.301.83",      "correct": false},
+                {"option": "207.46.265.26",     "correct": false},
+                {"option": "40.222.0.1",      "correct": true},
+                {"option": "140.333.11.56",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 40.222.0.1.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 40.222.0.1.</p>" // no comma here
+        },
+		{ // Question 10 - Multiple Choice, Single True Answer
+            "q": "IP位址基本上是由四組數字，以“.”符號隔開組成，請問每一組數字的最大值為何?",
+            "a": [
+                {"option": "128",      "correct": false},
+                {"option": "225",     "correct": false},
+                {"option": "226",      "correct": false},
+                {"option": "255",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 255.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 255.</p>" // no comma here
+        },
+		{ // Question 11 - Multiple Choice, Single True Answer
+            "q": "每部主機在internet上都有一個獨一無二的識別代號，此一代號稱為?",
+            "a": [
+                {"option": "FTP位址",      "correct": false},
+                {"option": "IP位址",     "correct": true},
+                {"option": "ISP位址",      "correct": false},
+                {"option": "E-mail位址",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> IP位址.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : IP位址.</p>" // no comma here
+        },
+		{ // Question 12 - Multiple Choice, Single True Answer
+            "q": "在資訊設備的採購案中，有一項規格為“採用IEEE802.11b/g”，由此推論，此設備是屬於何類的設備?",
+            "a": [
+                {"option": "高解析度的顯示器",      "correct": false},
+                {"option": "綠色環保設備",     "correct": false},
+                {"option": "無線區域網路設備",      "correct": true},
+                {"option": "高容量的儲存設備",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 無線區域網路設備.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 無線區域網路設備.</p>" // no comma here
+        },
+		{ // Question 13 - Multiple Choice, Single True Answer
+            "q": "在C類IP位址裏，一個網域可以提供幾個可用主機位址?",
+            "a": [
+                {"option": "2^8-2",      "correct": true},
+                {"option": "2^16-2",     "correct": false},
+                {"option": "2^24-2",      "correct": false},
+                {"option": "2^20-2",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 2^8-2.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 2^8-2.</p>" // no comma here
+        },
+		{ // Question 14 - Multiple Choice, Single True Answer
+            "q": "以“http://www.myweb.com.tw”而言，下列何者代表公司的網域?",
+            "a": [
+                {"option": "www",      "correct": false},
+                {"option": "myweb",     "correct": true},
+                {"option": "com",      "correct": false},
+                {"option": "tw",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> myweb.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : myweb.</p>" // no comma here
+        },
+		{ // Question 15 - Multiple Choice, Single True Answer
+            "q": "網址名稱http://www.yahoo.com之中，http所代表的涵義是?",
+            "a": [
+                {"option": "一種通訊協定",      "correct": true},
+                {"option": "電腦目前的網址",     "correct": false},
+                {"option": "網頁名稱",      "correct": false},
+                {"option": "路徑",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 一種通訊協定.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 一種通訊協定.</p>" // no comma here
+        },
+		{ // Question 16 - Multiple Choice, Single True Answer
+            "q": "在全球資訊網中，瀏覽器與網站之間傳送訊息時，使用的通訊協定是?",
+            "a": [
+                {"option": "HTML",      "correct": false},
+                {"option": "URL",     "correct": false},
+                {"option": "HTTP",      "correct": true},
+                {"option": "ASP",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> HTTP.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : HTTP.</p>" // no comma here
+        },
+		{ // Question 17 - Multiple Choice, Single True Answer
+            "q": "前幾年導致eBay、Yahoo等著名的商業網站一時之間無法服務大眾交易而關閉，這遭受駭客何種手法攻擊?",
+            "a": [
+                {"option": "電腦病毒",      "correct": false},
+                {"option": "阻絕服務",     "correct": true},
+                {"option": "郵件炸彈",      "correct": false},
+                {"option": "特洛伊木馬",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 阻絕服務.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 阻絕服務.</p>" // no comma here
+        },
+		{ // Question 18 - Multiple Choice, Single True Answer
+            "q": "除了經由軟碟機外，感染病毒可能的途徑還有?",
+            "a": [
+                {"option": "鍵盤",      "correct": false},
+                {"option": "網路",     "correct": true},
+                {"option": "螢幕",      "correct": false},
+                {"option": "印表機",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 網路.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 網路.</p>" // no comma here
+        },
+		{ // Question 19 - Multiple Choice, Single True Answer
+            "q": "下列哪種手段會誘騙使用者透過電子郵件或網站提供其資訊?",
+            "a": [
+                {"option": "電腦病毒",      "correct": false},
+                {"option": "蠕蟲",     "correct": false},
+                {"option": "特洛伊木馬",      "correct":false },
+                {"option": "網路釣魚",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 網路釣魚.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 網路釣魚.</p>" // no comma here
+        },
+		{ // Question 20 - Multiple Choice, Single True Answer
+            "q": "電腦與通訊結合之資訊社會，一般所稱的“LAN”指的是何種網路?",
+            "a": [
+                {"option": "區域網路",      "correct": true},
+                {"option": "廣域網路",     "correct": false},
+                {"option": "都會網路",      "correct": false},
+                {"option": "網際網路",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 區域網路.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 區域網路.</p>" // no comma here
+        },
+		{ // Question 21 - Multiple Choice, Single True Answer
+            "q": "下列何者是乙太網路上傳送訊框時所採用之爭取傳送機會的協定?",
+            "a": [
+                {"option": "CSMA/CD",      "correct": true},
+                {"option": "UDP",     "correct": false},
+                {"option": "TCP",      "correct": false},
+                {"option": "FTP",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> CSMA/CD.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : CSMA/CD.</p>" // no comma here
+        },
+		{ // Question 22 - Multiple Choice, Single True Answer
+            "q": "想連接乙太網路與無線區域網路時，需要何種裝置?",
+            "a": [
+                {"option": "路由器",      "correct": false},
+                {"option": "集線器",     "correct": false},
+                {"option": "閘道器",      "correct": false},
+                {"option": "橋接器",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 橋接器.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 橋接器.</p>" // no comma here
+        },
+		{ // Question 23 - Multiple Choice, Single True Answer
+            "q": "目前區域網路中，最廣泛使用的是乙太網路，其網路拓撲形態為何?",
+            "a": [
+                {"option": "星型",      "correct": true},
+                {"option": "環型",     "correct": false},
+                {"option": "雙環型",      "correct": false},
+                {"option": "樹狀",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 星型.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 星型.</p>" // no comma here
+        },
+        { // Question 24 - Multiple Choice, Single True Answer
+            "q": "目前常用的IP第四版（即IPv4）,地址是由多少位元所組成?",
+            "a": [
+                {"option": "4",      "correct": false},
+                {"option": "12",     "correct": false},
+                {"option": "32",      "correct": true},
+                {"option": "64",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 32.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 32.</p>" // no comma here
+        },
+		{ // Question 25 - Multiple Choice, Single True Answer
+            "q": "讓多部家用電腦共用一個真實IP連上internet時，需要下列何種技術?",
+            "a": [
+                {"option": "DNS",      "correct": false},
+                {"option": "PPP",     "correct": false},
+                {"option": "NAT",      "correct": true},
+                {"option": "PPPoE",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> NAT.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : NAT.</p>" // no comma here
+        },
+		{ // Question 26 - Multiple Choice, Single True Answer
+            "q": "在TCP/IP通訊協定的規範中，下列哪一段網路位址不可作為私人網路使用?",
+            "a": [
+                {"option": "10.0.0.0/8",      "correct": false},
+                {"option": "172.16.0.0/12",     "correct": false},
+                {"option": "192.168.0.0/16",      "correct": false},
+                {"option": "98.18.0.0/15",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 98.18.0.0/15.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 98.18.0.0/15.</p>" // no comma here
+        },
+		{ // Question 27 - Multiple Choice, Single True Answer
+            "q": "下列何者不是transmission control protocol（TCP）協定的主要功用?",
+            "a": [
+                {"option": "流量控制",      "correct": false},
+                {"option": "加密與解密",     "correct": true},
+                {"option": "確認與重送",      "correct": false},
+                {"option": "壅塞控制",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 加密與解密.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 加密與解密.</p>" // no comma here
+        },
+		{ // Question 28 - Multiple Choice, Single True Answer
+            "q": "http是屬於TCP/IP中哪一層的通訊協定?",
+            "a": [
+                {"option": "網路層",      "correct": false},
+                {"option": "應用層",     "correct": true},
+                {"option": "傳送層",      "correct": false},
+                {"option": "連結層",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 應用層.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 應用層.</p>" // no comma here
+        },
+		{ // Question 29 - Multiple Choice, Single True Answer
+            "q": "電腦網路上的位址解析工作是由哪一層所負責",
+            "a": [
+                {"option": "工作層",      "correct": false},
+                {"option": "傳輸層",     "correct": false},
+                {"option": "網路層",      "correct": true},
+                {"option": "鏈結層",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 網路層.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 網路層.</p>" // no comma here
+        },
+		{ // Question 30 - Multiple Choice, Single True Answer
+            "q": "大家常說TCP是一種可靠的通訊協定，所謂的可靠的意思是?",
+            "a": [
+                {"option": "傳送資料不會遺失",      "correct": false},
+                {"option": "保證一定可以傳到對方",     "correct": false},
+                {"option": "它可以檢查以確認是否正確傳送否則會嘗試重傳多次",      "correct": false},
+                {"option": "要使用可靠的伺服器",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 要使用可靠的伺服器.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 要使用可靠的伺服器.</p>" // no comma here
+        }
+    ]
+	
+};

@@ -1,0 +1,953 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="download_date" content="2026-01-14T02:08:18.870Z"/>
+        
+
+        <title>第一章 線上測驗</title>
+
+        <link href="https://web.csie.ndhu.edu.tw/sclo/project/quiz_pages/css/reset.css" media="screen" rel="stylesheet" type="text/css">
+        
+        <!-- Bootstrap core CSS -->
+		<link href="https://web.csie.ndhu.edu.tw/sclo/project/quiz_pages/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<link href="https://web.csie.ndhu.edu.tw/sclo/project/quiz_pages/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+		
+        <style media="screen">/* BASE QUIZ STYLES */
+/* These styles ensure that the necessary elements are hidden for toggling */
+
+/* DO NOT EDIT UNLESS YOU KNOW WHAT YOU ARE DOING!! */
+
+.startQuiz,
+.nextQuestion,
+.backToQuestion,
+.questions li.question,
+.questions li.question .responses,
+.questions li.question .responses .correct,
+.questions li.question .responses .incorrect,
+.quizResults {
+    display: none;
+}
+
+/* If response messages are disabled or only shown on quiz completion,
+   nextQuestion button IS checkAnswer button - so it must be displayed */
+.nextQuestion.checkAnswer {
+    display: block;
+}
+
+ol.questions,
+ul.answers,
+ul.responses,
+ol.questions li,
+ul.answers li,
+ul.responses li {
+    list-style-type: none;
+}
+</style>
+        <link href="https://web.csie.ndhu.edu.tw/sclo/project/quiz_pages/css/master.css" media="screen" rel="stylesheet" type="text/css">
+    </head>
+
+    <body id="slickQuiz">
+        <h1 class="quizName"><!-- where the quiz name goes --></h1>
+
+        <div class="quizArea">
+            <div class="quizHeader">
+                <!-- where the quiz main copy goes -->
+
+                <a class="button startQuiz" href=".">開始</a>
+                <p>"上一頁" 返回首頁</p>
+            </div>
+
+            <!-- where the quiz gets built -->
+        </div>
+
+        <div class="quizResults">
+            <h3 class="quizScore">You Scored: <span><!-- where the quiz score goes --></span></h3>
+
+            <h3 class="quizLevel"><strong>Ranking:</strong> <span><!-- where the quiz ranking level goes --></span></h3>
+
+            <div class="quizResultsCopy">
+                <!-- where the quiz result copy goes -->
+            </div>
+        </div>
+
+        <script src="https://web.csie.ndhu.edu.tw/sclo/project/quiz_pages/js/jquery.js"></script>
+        <script>// Setup your quiz text and questions here
+
+// NOTE: pay attention to commas, IE struggles with those bad boys
+
+var quizJSON = {
+    "info": {
+        "name":    "第七章 線上測驗",
+        "main":    "<p>程式語言與軟體工程</p>",
+        "results": "<h5>NDHU</h5><p>Reference_GitHub_SlickQuiz(https://github.com/jewlofthelotus/SlickQuiz)</p>",
+        "level1":  "計算機概論 專家",
+        "level2":  "計算機概論 業餘",
+        "level3":  "計算機概論 入門",
+        "level4":  "計算機概論 新手",
+        "level5":  "請認真學習..." // no comma here
+    },
+    "questions": [
+        { // Question 1 - Multiple Choice, Single True Answer
+            "q": "下列何者不是使用流程圖的好處?",
+            "a": [
+                {"option": "利於除錯",      "correct": false},
+                {"option": "有助於程式設計者與使用者的溝通",     "correct": false},
+                {"option": "可減少程式錯誤的機會",      "correct": false},
+                {"option": "可控制程式撰寫時間",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 可控制程式撰寫時間.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 可控制程式撰寫時間.</p>" // no comma here
+        },
+        { // Question 2 - Multiple Choice, Single True Answer
+            "q": "下列何者不是結構化程式的優點?",
+            "a": [
+                {"option": "容易瞭解",      "correct": false},
+                {"option": "容易維護",   "correct": false},
+                {"option": "容易書寫、測試、除錯",    "correct": false},
+                {"option": "減少CPU的執行時間", "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 減少CPU的執行時間.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 減少CPU的執行時間.</p>" // no comma here
+        },
+        { // Question 3 - Multiple Choice, Single True Answer
+            "q": "結構化程式觀念中，從上到下依序執行的結構是?",
+            "a": [
+                {"option": "循序結構",      "correct": true},
+                {"option": "選擇結構",     "correct": false},
+                {"option": "重複結構",      "correct": false},
+                {"option": "互動結構",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 循序結構.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 循序結構.</p>" // no comma here
+        },
+        { // Question 4 - Multiple Choice, Single True Answer
+            "q": "結構化程式設計的三種基本結構為循序、選擇以及?",
+            "a": [
+                {"option": "直接",      "correct": false},
+                {"option": "隨機",     "correct": false},
+                {"option": "重複",      "correct": true},
+                {"option": "相關",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 重複.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 重複.</p>" // no comma here
+        },
+        { // Question 5 - Multiple Choice, Single True Answer
+            "q": "下列有關BASIC語言的敘述，何者正確?",
+            "a": [
+                {"option": "BASIC語言是由美國史丹佛大學的教授所發展出來的",      "correct": false},
+                {"option": "BASIC語言是一種高階語言",     "correct": true},
+                {"option": "BASIC語言只能被直譯，不能被編譯",      "correct": false},
+                {"option": "BASIC語言不能用來撰寫視窗程式",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> BASIC語言是一種高階語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : BASIC語言是一種高階語言.</p>" // no comma here
+        },
+		{ // Question 6 - Multiple Choice, Single True Answer
+            "q": "“–>”流程圖符號是？",
+            "a": [
+                {"option": "流向符號",      "correct": true},
+                {"option": "決策符號",     "correct": false},
+                {"option": "迴圈符號",      "correct": false},
+                {"option": "處理符號",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 流向符號.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 流向符號.</p>" // no comma here
+        },
+		{ // Question 7 - Multiple Choice, Single True Answer
+            "q": "下列何種語言是由0-9，A-F組成之十六進位數字系統來表示？",
+            "a": [
+                {"option": "自然語言",      "correct": false},
+                {"option": "組合語言",     "correct": true},
+                {"option": "高階語言",      "correct": false},
+                {"option": "機器語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 組合語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 組合語言.</p>" // no comma here
+        },
+		{ // Question 8 - Multiple Choice, Single True Answer
+            "q": "下列何者為高階語言所具有的特性？",
+            "a": [
+                {"option": "易讀、易懂、易寫",      "correct": true},
+                {"option": "隨機種而改變",     "correct": false},
+                {"option": "不需經過翻譯便可執行",      "correct": false},
+                {"option": "執行時間最短",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 易讀、易懂、易寫.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 易讀、易懂、易寫.</p>" // no comma here
+        },
+		{ // Question 9 - Multiple Choice, Single True Answer
+            "q": "在物件導向的觀念中，下列何者表示某類別之屬性",
+            "a": [
+                {"option": "電視在播映DVD影片",      "correct": false},
+                {"option": "電腦在編譯VB程式",     "correct": false},
+                {"option": "電鍋使用110V伏特電壓",      "correct": true},
+                {"option": "電子雞在唱KTV",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 電鍋使用110V伏特電壓.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 電鍋使用110V伏特電壓.</p>" // no comma here
+        },
+		{ // Question 10 - Multiple Choice, Single True Answer
+            "q": "當程式設計以物件導向方式開發一個“校務行政課程管理系統”時，下列何者通常不會以類別（class）來表示?",
+            "a": [
+                {"option": "學生",      "correct": false},
+                {"option": "教師",     "correct": false},
+                {"option": "課程",      "correct": false},
+                {"option": "姓名",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 姓名.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 姓名.</p>" // no comma here
+        },
+		{ // Question 11 - Multiple Choice, Single True Answer
+            "q": "下列語言何者不具物件導向的特性?",
+            "a": [
+                {"option": "cobol",      "correct": true},
+                {"option": "java",     "correct": false},
+                {"option": "c++",      "correct": false},
+                {"option": "visual basic",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> cobol.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : cobol.</p>" // no comma here
+        },
+		{ // Question 12 - Multiple Choice, Single True Answer
+            "q": "下列何種為物件導向式語言?",
+            "a": [
+                {"option": "C++",      "correct": false},
+                {"option": "fortran",     "correct": false},
+                {"option": "pascal",      "correct": true},
+                {"option": "cobol",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> pascal.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : pascal.</p>" // no comma here
+        },
+		{ // Question 13 - Multiple Choice, Single True Answer
+            "q": "BASIC語言是屬於哪一類的程式語言?",
+            "a": [
+                {"option": "機器語言",      "correct": false},
+                {"option": "低階語言",     "correct": false},
+                {"option": "高階語言",      "correct": true},
+                {"option": "自然語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 高階語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 高階語言.</p>" // no comma here
+        },
+		{ // Question 14 - Multiple Choice, Single True Answer
+            "q": "下列語言，何者為最低階語言?",
+            "a": [
+                {"option": "機器語言",      "correct": true},
+                {"option": "組合語言",     "correct": false},
+                {"option": "自然語言",      "correct": false},
+                {"option": "C語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 機器語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 機器語言.</p>" // no comma here
+        },
+		{ // Question 15 - Multiple Choice, Single True Answer
+            "q": "CPU可直接執行的程式语言是下列何者",
+            "a": [
+                {"option": "機器語言",      "correct": true},
+                {"option": "組合語言",     "correct": false},
+                {"option": "高階語言",      "correct": false},
+                {"option": "低階語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 機器語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 機器語言.</p>" // no comma here
+        },
+		{ // Question 16 - Multiple Choice, Single True Answer
+            "q": "程式設計師通常不使用機器語言來撰寫程式，其原因是?",
+            "a": [
+                {"option": "機器語言可讀性差",      "correct": true},
+                {"option": "機器語言須經過編譯才能執行",     "correct": false},
+                {"option": "機器語言執行速度慢",      "correct": false},
+                {"option": "機器語言指令功能少",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 機器語言可讀性差.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 機器語言可讀性差.</p>" // no comma here
+        },
+		{ // Question 17 - Multiple Choice, Single True Answer
+            "q": "下列有關程式語言的敘述，何者有誤?",
+            "a": [
+                {"option": "機器語言的指令是有0與1組成",      "correct": false},
+                {"option": "组合语言不需翻譯，電腦即可執行",     "correct": true},
+                {"option": "機器語言屬於低階語言",      "correct": false},
+                {"option": "高階語言的語法較接近人類語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 组合语言不需翻譯，電腦即可執行.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 组合语言不需翻譯，電腦即可執行.</p>" // no comma here
+        },
+		{ // Question 18 - Multiple Choice, Single True Answer
+            "q": "一個高階語言程式的發展過程為下列何者?",
+            "a": [
+                {"option": "編輯，編譯，執行，連結/載入",      "correct": false},
+                {"option": "編譯，編輯，執行，連結/載入",     "correct": false},
+                {"option": "編輯，編譯，連結/載入，執行",      "correct": true},
+                {"option": "編輯，連結/載入，編譯，執行",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 編輯，編譯，連結/載入，執行.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 編輯，編譯，連結/載入，執行.</p>" // no comma here
+        },
+		{ // Question 19 - Multiple Choice, Single True Answer
+            "q": "下列何種電腦語言和人類的語言最相近，且廣為大眾所使用 ?",
+            "a": [
+                {"option": "中階語言",      "correct": false},
+                {"option": "組合語言",     "correct": false},
+                {"option": "高階語言",      "correct": true},
+                {"option": "機器語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 高階語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 高階語言.</p>" // no comma here
+        },
+		{ // Question 20 - Multiple Choice, Single True Answer
+            "q": "在電腦程式語言的演進過程中，機器語言屬於第一代語言，組合語言屬於第二代語言，下列關於機器語言及組合語言在不同電腦中使用的敘述，何者正確?",
+            "a": [
+                {"option": "需使用相同的機器語言和相同的組合語言",      "correct": false},
+                {"option": "需使用相同的機器語言和不同的組合語言",     "correct": false},
+                {"option": "需使用不同的機器語言和相同的組合語言",      "correct": false},
+                {"option": "需使用不同的機器語言和不同的組合語言",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 需使用不同的機器語言和不同的組合語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 需使用不同的機器語言和不同的組合語言.</p>" // no comma here
+        },
+		{ // Question 21 - Multiple Choice, Single True Answer
+            "q": "機器語言及組合語言又稱為?",
+            "a": [
+                {"option": "低階語言",      "correct": true},
+                {"option": "人工智慧語言",     "correct": false},
+                {"option": "套裝軟體語言",      "correct": false},
+                {"option": "高階語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 低階語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 低階語言.</p>" // no comma here
+        },
+		{ // Question 22 - Multiple Choice, Single True Answer
+            "q": "稱為符號語言或易記碼的是?",
+            "a": [
+                {"option": "機器語言",      "correct": false},
+                {"option": "組合語言",     "correct": true},
+                {"option": "C語言",      "correct": false},
+                {"option": "商用程式語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 組合語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 組合語言.</p>" // no comma here
+        },
+		{ // Question 23 - Multiple Choice, Single True Answer
+            "q": "對C語言的描述，下列何者有誤?",
+            "a": [
+                {"option": "兼具高階語言與低階語言之特性",      "correct": false},
+                {"option": "執行速度較一般高階語言快",     "correct": false},
+                {"option": "最適合作商業性資料處理之語言",      "correct": true},
+                {"option": "語法較接近Pascal語言",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 最適合作商業性資料處理之語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 最適合作商業性資料處理之語言.</p>" // no comma here
+        },
+        { // Question 24 - Multiple Choice, Single True Answer
+            "q": "JAVA是屬於何種語言?",
+            "a": [
+                {"option": "組合語言",      "correct": false},
+                {"option": "機器語言",     "correct": false},
+                {"option": "低階語言",      "correct": false},
+                {"option": "高階語言",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 高階語言.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 高階語言.</p>" // no comma here
+        },
+		{ // Question 25 - Multiple Choice, Single True Answer
+            "q": "下列何者不是C或C++的迴圈指令?",
+            "a": [
+                {"option": "While迴圈",      "correct": false},
+                {"option": "For迴圈",     "correct": false },
+                {"option": "Loop迴圈",      "correct": true},
+                {"option": "Do while 迴圈",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> Loop迴圈.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : Loop迴圈.</p>" // no comma here
+        },
+		{ // Question 26 - Multiple Choice, Single True Answer
+            "q": "下列何者可能為機器語言之指令?",
+            "a": [
+                {"option": "a=b+c",      "correct": false},
+                {"option": "1000110010100000",     "correct": true},
+                {"option": "add $t0, $s1, $s2",      "correct": false},
+                {"option": "11=10+12",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 1000110010100000.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 1000110010100000.</p>" // no comma here
+        },
+		{ // Question 27 - Multiple Choice, Single True Answer
+            "q": "下列選項中為有關C與C++程式語言之比較，何者正確?",
+            "a": [
+                {"option": "C之歷史較C++長久，並且C具有支援物件導向程式設計之功能",      "correct": false},
+                {"option": "C與C++支援之資料形態相同，並使用相同之運算符號",     "correct": false},
+                {"option": "C是C++發展之基礎，故二者之語法規則相似",      "correct": true},
+                {"option": "C語言編寫之程式使用編譯器處理，C++語言編寫之程式使用直譯器處理",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> C是C++發展之基礎，故二者之語法規則相似.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : C是C++發展之基礎，故二者之語法規則相似.</p>" // no comma here
+        },
+		{ // Question 28 - Multiple Choice, Single True Answer
+            "q": "下列選項中為有關C與C++程式語言之比較，何者正確?",
+            "a": [
+                {"option": "C與C++程式語言皆規定了具有特定意義之關鍵字，且C程式語言規定之關鍵字數量多於C++",      "correct": true},
+                {"option": "C與C++程式語言中，if/else及switch/case等敘述之語法規則皆相同",     "correct": false},
+                {"option": "C與C++程式語言中，宣告資料變數等敘述之語法規則皆相同",      "correct": false},
+                {"option": "C與C++程式語言中，定義一函式之語法規則皆相同",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> C與C++程式語言皆規定了具有特定意義之關鍵字，且C程式語言規定之關鍵字數量多於C++.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : C與C++程式語言皆規定了具有特定意義之關鍵字，且C程式語言規定之關鍵字數量多於C++.</p>" // no comma here
+        },
+		{ // Question 29 - Multiple Choice, Single True Answer
+            "q": "以下程式片段執行完畢後，陣列b中各元素的值分別為多少?\nint a[5], b[5];\nfor(i = 0; i<=4; i++){\na[i]=i;\nb[4-i] = a[i]*2;\n}",
+			   
+            "a": [
+                {"option": "0，2，4，6，8",      "correct": false},
+                {"option": "0，1，2，3，4",     "correct": false},
+                {"option": "4，3，2，1，0",      "correct": false},
+                {"option": "8，6，4，2，0",     "correct": true} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> 8，6，4，2，0.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 8，6，4，2，0.</p>" // no comma here
+        },
+		{ // Question 30 - Multiple Choice, Single True Answer
+            "q": "下列哪個程式碼可計算1至99所有的奇數總和?",
+            "a": [
+                {"option": "int k, sum=0; for(k=1; k<=99; k++){if(k%2==0) sum+=k;}",      "correct": false},
+                {"option": "int k, sum=0;while(k<=99){k+=2;sum+=k;}",     "correct": false},
+                {"option": "int k=1, sum=0;while(k<=99){sum+=k;k+=2;}",      "correct": true},
+                {"option": "int k=2, sum=0;while(k<=99){sum++;k+=2;}",     "correct": false} // no comma here
+            ],
+            "correct": "<p><span>答對!</span> int k=1, sum=0;while(k<=99){sum+=k;k+=2;}.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : int k=1, sum=0;while(k<=99){sum+=k;k+=2;}.</p>" // no comma here
+        }
+    ]
+	
+};
+</script>
+        <script>/*!
+ * SlickQuiz jQuery Plugin
+ * http://github.com/QuickenLoans/SlickQuiz
+ *
+ * @updated September 23, 2013
+ *
+ * @author Julie Cameron - http://www.juliecameron.com
+ * @copyright (c) 2013 Quicken Loans - http://www.quickenloans.com
+ * @license MIT
+ */
+
+(function($){
+    $.slickQuiz = function(element, options) {
+        var plugin   = this,
+            $element = $(element),
+            _element = '#' + $element.attr('id'),
+
+            defaults = {
+                checkAnswerText:  '查看答案',
+                nextQuestionText: '繼續',
+                backButtonText: '返回',
+                tryAgainText: '',
+                skipStartButton: false,
+                numberOfQuestions: null,
+                randomSort: true,
+                randomSortQuestions: true,
+                randomSortAnswers: false,
+                preventUnanswered: false,
+                completionResponseMessaging: false,
+                disableResponseMessaging: false
+            },
+
+            // Class Name Strings (Used for building quiz and for selectors)
+            questionCountClass     = 'questionCount',
+            questionGroupClass     = 'questions',
+            questionClass          = 'question',
+            answersClass           = 'answers',
+            responsesClass         = 'responses',
+            correctClass           = 'correctResponse',
+            correctResponseClass   = 'correct',
+            incorrectResponseClass = 'incorrect',
+            checkAnswerClass       = 'checkAnswer',
+            nextQuestionClass      = 'nextQuestion',
+            backToQuestionClass    = 'backToQuestion',
+            tryAgainClass          = 'tryAgain',
+
+            // Sub-Quiz / Sub-Question Class Selectors
+            _questionCount         = '.' + questionCountClass,
+            _questions             = '.' + questionGroupClass,
+            _question              = '.' + questionClass,
+            _answers               = '.' + answersClass,
+            _responses             = '.' + responsesClass,
+            _correct               = '.' + correctClass,
+            _correctResponse       = '.' + correctResponseClass,
+            _incorrectResponse     = '.' + incorrectResponseClass,
+            _checkAnswerBtn        = '.' + checkAnswerClass,
+            _nextQuestionBtn       = '.' + nextQuestionClass,
+            _prevQuestionBtn       = '.' + backToQuestionClass,
+            _tryAgainBtn           = '.' + tryAgainClass,
+
+            // Top Level Quiz Element Class Selectors
+            _quizStarter           = _element + ' .startQuiz',
+            _quizName              = _element + ' .quizName',
+            _quizArea              = _element + ' .quizArea',
+            _quizResults           = _element + ' .quizResults',
+            _quizResultsCopy       = _element + ' .quizResultsCopy',
+            _quizHeader            = _element + ' .quizHeader',
+            _quizScore             = _element + ' .quizScore',
+            _quizLevel             = _element + ' .quizLevel',
+
+            // Top Level Quiz Element Objects
+            $quizStarter           = $(_quizStarter),
+            $quizName              = $(_quizName),
+            $quizArea              = $(_quizArea),
+            $quizResults           = $(_quizResults),
+            $quizResultsCopy       = $(_quizResultsCopy),
+            $quizHeader            = $(_quizHeader),
+            $quizScore             = $(_quizScore),
+            $quizLevel             = $(_quizLevel)
+        ;
+
+
+        // Reassign user-submitted deprecated options
+        var depMsg = '';
+
+        if (options && typeof options.disableNext != 'undefined') {
+            if (typeof options.preventUnanswered == 'undefined') {
+                options.preventUnanswered = options.disableNext;
+            }
+            depMsg += 'The \'disableNext\' option has been deprecated, please use \'preventUnanswered\' in it\'s place.\n\n';
+        }
+
+        if (depMsg !== '') {
+            if (typeof console != 'undefined') {
+                console.warn(depMsg);
+            } else {
+                alert(depMsg);
+            }
+        }
+        // End of deprecation reassignment
+
+
+        plugin.config = $.extend(defaults, options);
+
+        // Set via json option or quizJSON variable (see slickQuiz-config.js)
+        var quizValues = (plugin.config.json ? plugin.config.json : typeof quizJSON != 'undefined' ? quizJSON : null);
+
+        // Get questions, possibly sorted randomly
+        var questions = plugin.config.randomSort || plugin.config.randomSortQuestions ?
+                        quizValues.questions.sort(function() { return (Math.round(Math.random())-0.5); }) :
+                        quizValues.questions;
+
+        // Count the number of questions
+        var questionCount = questions.length;
+
+        // Select X number of questions to load if options is set
+        if (plugin.config.numberOfQuestions && questionCount >= plugin.config.numberOfQuestions) {
+            questions = questions.slice(0, plugin.config.numberOfQuestions);
+            questionCount = questions.length;
+        }
+
+        plugin.method = {
+            // Sets up the questions and answers based on above array
+            setupQuiz: function() {
+                $quizName.hide().html(quizValues.info.name).fadeIn(1000);
+                $quizHeader.hide().prepend(quizValues.info.main).fadeIn(1000);
+                $quizResultsCopy.append(quizValues.info.results);
+
+                // add retry button to results view, if enabled
+                if (plugin.config.tryAgainText && plugin.config.tryAgainText !== '') {
+                    $quizResultsCopy.before('<a class="button ' + tryAgainClass + '" href="#">' + plugin.config.tryAgainText + '</a>');
+                }
+
+                // Setup questions
+                var quiz  = $('<ol class="' + questionGroupClass + '"></ol>'),
+                    count = 1;
+
+                // Loop through questions object
+                for (i in questions) {
+                    if (questions.hasOwnProperty(i)) {
+                        var question = questions[i];
+
+                        var questionHTML = $('<li class="' + questionClass +'" id="question' + (count - 1) + '"></li>');
+                        questionHTML.append('<div class="' + questionCountClass + '">Question <span class="current">' + count + '</span> of <span class="total">' + questionCount + '</span></div>');
+                        questionHTML.append('<h3>' + count + '. ' + question.q + '</h3>');
+
+                        // Count the number of true values
+                        var truths = 0;
+                        for (i in question.a) {
+                            if (question.a.hasOwnProperty(i)) {
+                                answer = question.a[i];
+                                if (answer.correct) {
+                                    truths++;
+                                }
+                            }
+                        }
+
+                        // Now let's append the answers with checkboxes or radios depending on truth count
+                        var answerHTML = $('<ul class="' + answersClass + '"></ul>');
+
+                        // Get the answers
+                        var answers = plugin.config.randomSort || plugin.config.randomSortAnswers ?
+                            question.a.sort(function() { return (Math.round(Math.random())-0.5); }) :
+                            question.a;
+
+                        // prepare a name for the answer inputs based on the question
+                        var selectAny  = question.select_any ? question.select_any : false,
+                            inputName  = 'question' + (count - 1),
+                            inputType  = (truths > 1 && !selectAny ? 'checkbox' : 'radio');
+
+                        for (i in answers) {
+                            if (answers.hasOwnProperty(i)) {
+                                answer   = answers[i],
+                                optionId = inputName + '_' + i.toString();
+
+                                // If question has >1 true answers and is not a select any, use checkboxes; otherwise, radios
+                                var input = '<input id="' + optionId + '" name="' + inputName +
+                                            '" type="' + inputType + '" />';
+
+                                var optionLabel = '<label for="' + optionId + '">' + answer.option + '</label>';
+
+                                var answerContent = $('<li></li>')
+                                    .append(input)
+                                    .append(optionLabel);
+                                answerHTML.append(answerContent);
+                            }
+                        }
+
+                        // Append answers to question
+                        questionHTML.append(answerHTML);
+
+                        // If response messaging is NOT disabled, add it
+                        if (!plugin.config.disableResponseMessaging) {
+                            // Now let's append the correct / incorrect response messages
+                            var responseHTML = $('<ul class="' + responsesClass + '"></ul>');
+                            responseHTML.append('<li class="' + correctResponseClass + '">' + question.correct + '</li>');
+                            responseHTML.append('<li class="' + incorrectResponseClass + '">' + question.incorrect + '</li>');
+
+                            // Append responses to question
+                            questionHTML.append(responseHTML);
+                        }
+
+                        // Appends check answer / back / next question buttons
+                        if (plugin.config.backButtonText && plugin.config.backButtonText !== '') {
+                            questionHTML.append('<a href="#" class="button ' + backToQuestionClass + '">' + plugin.config.backButtonText + '</a>');
+                        }
+
+                        // If response messaging is disabled or hidden until the quiz is completed,
+                        // make the nextQuestion button the checkAnswer button, as well
+                        if (plugin.config.disableResponseMessaging || plugin.config.completionResponseMessaging) {
+                            questionHTML.append('<a href="#" class="button ' + nextQuestionClass + ' ' + checkAnswerClass + '">' + plugin.config.nextQuestionText + '</a>');
+                        } else {
+                            questionHTML.append('<a href="#" class="button ' + nextQuestionClass + '">' + plugin.config.nextQuestionText + '</a>');
+                            questionHTML.append('<a href="#" class="button ' + checkAnswerClass + '">' + plugin.config.checkAnswerText + '</a>');
+                        }
+
+                        // Append question & answers to quiz
+                        quiz.append(questionHTML);
+
+                        count++;
+                    }
+                }
+
+                // Add the quiz content to the page
+                $quizArea.append(quiz);
+
+                // Toggle the start button OR start the quiz if start button is disabled
+                if (plugin.config.skipStartButton || $quizStarter.length == 0) {
+                    $quizStarter.hide();
+                    plugin.method.startQuiz(this);
+                } else {
+                    $quizStarter.fadeIn(500);
+                }
+            },
+
+            // Starts the quiz (hides start button and displays first question)
+            startQuiz: function() {
+                function start() {
+                    var firstQuestion = $(_element + ' ' + _questions + ' li').first();
+                    if (firstQuestion.length) {
+                        firstQuestion.fadeIn(500);
+                    }
+                }
+
+                if (plugin.config.skipStartButton || $quizStarter.length == 0) {
+                    start();
+                } else {
+                    $quizStarter.fadeOut(300, function(){
+                        start();
+                    });
+                }
+            },
+
+            // Resets (restarts) the quiz (hides results, resets inputs, and displays first question)
+            resetQuiz: function(startButton) {
+                $quizResults.fadeOut(300, function() {
+                    $(_element + ' input').prop('checked', false).prop('disabled', false);
+
+                    $quizLevel.attr('class', 'quizLevel');
+                    $(_element + ' ' + _correct).removeClass(correctClass);
+
+                    $(_element + ' ' + _question          + ',' +
+                      _element + ' ' + _responses         + ',' +
+                      _element + ' ' + _correctResponse   + ',' +
+                      _element + ' ' + _incorrectResponse + ',' +
+                      _element + ' ' + _nextQuestionBtn   + ',' +
+                      _element + ' ' + _prevQuestionBtn
+                    ).hide();
+
+                    $(_element + ' ' + _questionCount + ',' +
+                      _element + ' ' + _answers + ',' +
+                      _element + ' ' + _checkAnswerBtn
+                    ).show();
+
+                    $quizArea.append($(_element + ' ' + _questions)).show();
+
+                    plugin.method.startQuiz($quizResults);
+                });
+            },
+
+            // Validates the response selection(s), displays explanations & next question button
+            checkAnswer: function(checkButton) {
+                var questionLI    = $($(checkButton).parents(_question)[0]),
+                    answerInputs  = questionLI.find('input:checked'),
+                    questionIndex = parseInt(questionLI.attr('id').replace(/(question)/, ''), 10),
+                    answers       = questions[questionIndex].a,
+                    selectAny     = questions[questionIndex].select_any ? questions[questionIndex].select_any : false;
+
+                // Collect the true answers needed for a correct response
+                var trueAnswers = [];
+                for (i in answers) {
+                    if (answers.hasOwnProperty(i)) {
+                        var answer = answers[i];
+
+                        if (answer.correct) {
+                            trueAnswers.push($('<div />').html(answer.option).text());
+                        }
+                    }
+                }
+
+                // NOTE: Collecting .text() for comparison aims to ensure that HTML entities
+                // and HTML elements that may be modified by the browser match up
+
+                // Collect the answers submitted
+                var selectedAnswers = [];
+                answerInputs.each( function() {
+                    var inputValue = $(this).next('label').text();
+                    selectedAnswers.push(inputValue);
+                });
+
+                if (plugin.config.preventUnanswered && selectedAnswers.length === 0) {
+                    alert('You must select at least one answer.');
+                    return false;
+                }
+
+                // Verify all/any true answers (and no false ones) were submitted
+                var correctResponse = plugin.method.compareAnswers(trueAnswers, selectedAnswers, selectAny);
+
+                if (correctResponse) {
+                    questionLI.addClass(correctClass);
+                }
+
+                // If response messaging hasn't been disabled, toggle the proper response
+                if (!plugin.config.disableResponseMessaging) {
+                    // If response messaging hasn't been set to display upon quiz completion, show it now
+                    if (!plugin.config.completionResponseMessaging) {
+                        questionLI.find(_answers).hide();
+                        questionLI.find(_responses).show();
+
+                        $(checkButton).hide();
+                        questionLI.find(_nextQuestionBtn).fadeIn(300);
+                        questionLI.find(_prevQuestionBtn).fadeIn(300);
+                    }
+
+                    // Toggle responses based on submission
+                    questionLI.find(correctResponse ? _correctResponse : _incorrectResponse).fadeIn(300);
+                }
+            },
+
+            // Moves to the next question OR completes the quiz if on last question
+            nextQuestion: function(nextButton) {
+                var currentQuestion = $($(nextButton).parents(_question)[0]),
+                    nextQuestion    = currentQuestion.next(_question),
+                    answerInputs    = currentQuestion.find('input:checked');
+
+                // If response messaging has been disabled or moved to completion,
+                // make sure we have an answer if we require it, let checkAnswer handle the alert messaging
+                if (plugin.config.preventUnanswered && answerInputs.length === 0) {
+                    return false;
+                }
+
+                if (nextQuestion.length) {
+                    currentQuestion.fadeOut(300, function(){
+                        nextQuestion.find(_prevQuestionBtn).show().end().fadeIn(500);
+                    });
+                } else {
+                    plugin.method.completeQuiz();
+                }
+            },
+
+            // Go back to the last question
+            backToQuestion: function(backButton) {
+                var questionLI = $($(backButton).parents(_question)[0]),
+                    answers    = questionLI.find(_answers);
+
+                // Back to previous question
+                if (answers.css('display') === 'block' ) {
+                    var prevQuestion = questionLI.prev(_question);
+
+                    questionLI.fadeOut(300, function() {
+                        prevQuestion.removeClass(correctClass);
+                        prevQuestion.find(_responses + ', ' + _responses + ' li').hide();
+                        prevQuestion.find(_answers).show();
+                        prevQuestion.find(_checkAnswerBtn).show();
+
+                        // If response messaging hasn't been disabled or moved to completion, hide the next question button
+                        // If it has been, we need nextQuestion visible so the user can move forward (there is no separate checkAnswer button)
+                        if (!plugin.config.disableResponseMessaging && !plugin.config.completionResponseMessaging) {
+                            prevQuestion.find(_nextQuestionBtn).hide();
+                        }
+
+                        if (prevQuestion.attr('id') != 'question0') {
+                            prevQuestion.find(_prevQuestionBtn).show();
+                        } else {
+                            prevQuestion.find(_prevQuestionBtn).hide();
+                        }
+
+                        prevQuestion.fadeIn(500);
+                    });
+
+                // Back to question from responses
+                } else {
+                    questionLI.find(_responses).fadeOut(300, function(){
+                        questionLI.removeClass(correctClass);
+                        questionLI.find(_responses + ' li').hide();
+                        answers.fadeIn(500);
+                        questionLI.find(_checkAnswerBtn).fadeIn(500);
+                        questionLI.find(_nextQuestionBtn).hide();
+
+                        // if question is first, don't show back button on question
+                        if (questionLI.attr('id') != 'question0') {
+                            questionLI.find(_prevQuestionBtn).show();
+                        } else {
+                            questionLI.find(_prevQuestionBtn).hide();
+                        }
+                    });
+                }
+            },
+
+            // Hides all questions, displays the final score and some conclusive information
+            completeQuiz: function() {
+                var levels    = [
+                                    quizValues.info.level1, // 80-100%
+                                    quizValues.info.level2, // 60-79%
+                                    quizValues.info.level3, // 40-59%
+                                    quizValues.info.level4, // 20-39%
+                                    quizValues.info.level5  // 0-19%
+                                ],
+                    score     = $(_element + ' ' + _correct).length,
+                    levelRank = plugin.method.calculateLevel(score),
+                    levelText = $.isNumeric(levelRank) ? levels[levelRank] : '';
+
+                $(_quizScore + ' span').html(score + ' / ' + questionCount);
+                $(_quizLevel + ' span').html(levelText);
+                $(_quizLevel).addClass('level' + levelRank);
+
+                $quizArea.fadeOut(300, function() {
+                    // If response messaging is set to show upon quiz completion, show it
+                    if (plugin.config.completionResponseMessaging && !plugin.config.disableResponseMessaging) {
+                        $(_element + ' input').prop('disabled', true);
+                        $(_element + ' .button:not(' + _tryAgainBtn + '), ' + _element + ' ' + _questionCount).hide();
+                        $(_element + ' ' + _question + ', ' + _element + ' ' + _responses).show();
+                        $quizResults.append($(_element + ' ' + _questions)).fadeIn(500);
+                    } else {
+                        $quizResults.fadeIn(500);
+                    }
+                });
+            },
+
+            // Compares selected responses with true answers, returns true if they match exactly
+            compareAnswers: function(trueAnswers, selectedAnswers, selectAny) {
+                if ( selectAny ) {
+                    return $.inArray(selectedAnswers[0], trueAnswers) > -1;
+                } else {
+                    // crafty array comparison (http://stackoverflow.com/a/7726509)
+                    return ($(trueAnswers).not(selectedAnswers).length === 0 && $(selectedAnswers).not(trueAnswers).length === 0);
+                }
+            },
+
+            // Calculates knowledge level based on number of correct answers
+            calculateLevel: function(correctAnswers) {
+                var percent = (correctAnswers / questionCount).toFixed(2),
+                    level   = null;
+
+                if (plugin.method.inRange(0, 0.20, percent)) {
+                    level = 4;
+                } else if (plugin.method.inRange(0.21, 0.40, percent)) {
+                    level = 3;
+                } else if (plugin.method.inRange(0.41, 0.60, percent)) {
+                    level = 2;
+                } else if (plugin.method.inRange(0.61, 0.80, percent)) {
+                    level = 1;
+                } else if (plugin.method.inRange(0.81, 1.00, percent)) {
+                    level = 0;
+                }
+
+                return level;
+            },
+
+            // Determines if percentage of correct values is within a level range
+            inRange: function(start, end, value) {
+                return (value >= start && value <= end);
+            }
+        };
+
+        plugin.init = function() {
+            // Setup quiz
+            plugin.method.setupQuiz();
+
+            // Bind "start" button
+            $quizStarter.on('click', function(e) {
+                e.preventDefault();
+                plugin.method.startQuiz();
+            });
+
+            // Bind "try again" button
+            $(_element + ' ' + _tryAgainBtn).on('click', function(e) {
+                e.preventDefault();
+                plugin.method.resetQuiz(this);
+            });
+
+            // Bind "check answer" buttons
+            $(_element + ' ' + _checkAnswerBtn).on('click', function(e) {
+                e.preventDefault();
+                plugin.method.checkAnswer(this);
+            });
+
+            // Bind "back" buttons
+            $(_element + ' ' + _prevQuestionBtn).on('click', function(e) {
+                e.preventDefault();
+                plugin.method.backToQuestion(this);
+            });
+
+            // Bind "next" buttons
+            $(_element + ' ' + _nextQuestionBtn).on('click', function(e) {
+                e.preventDefault();
+                plugin.method.nextQuestion(this);
+            });
+        };
+
+        plugin.init();
+    };
+
+    $.fn.slickQuiz = function(options) {
+        return this.each(function() {
+            if (undefined === $(this).data('slickQuiz')) {
+                var plugin = new $.slickQuiz(this, options);
+                $(this).data('slickQuiz', plugin);
+            }
+        });
+    };
+})(jQuery);
+</script>
+        <script>// Put all your page JS here
+
+$(function () {
+    $('#slickQuiz').slickQuiz();
+});</script>
+    
+
+</body>

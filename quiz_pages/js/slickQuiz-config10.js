@@ -281,9 +281,9 @@ var quizJSON = {
 		{ // Question 25 - Multiple Choice, Single True Answer
             "q": "下列何種不是SQL的查詢句子?",
             "a": [
-                {"option": "elect",      "correct": false},
+                {"option": "select",      "correct": false},
                 {"option": "from",     "correct": false},
-                {"option": "while",      "correct": false},
+                {"option": "where",      "correct": false},
                 {"option": "if",     "correct": true} // no comma here
             ],
             "correct": "<p><span>答對!</span> if.</p>",
@@ -306,10 +306,10 @@ var quizJSON = {
                 {"option": "主鍵",      "correct": false},
                 {"option": "次要鍵",     "correct": false},
                 {"option": "外來鍵",      "correct": false},
-                {"option": "以上皆非",     "correct": true} // no comma here
+                {"option": "以上皆是",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 以上皆非.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 以上皆非.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 以上皆是.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 以上皆是.</p>" // no comma here
         },
 		{ // Question 28 - Multiple Choice, Single True Answer
             "q": "SELECT子句的目的為何?",
@@ -334,7 +334,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 列出處理時會參考到的表格名稱.</p>" // no comma here
         },
 		{ // Question 30 - Multiple Choice, Single True Answer
-            "q": "while子句的目的為何?",
+            "q": "WHERE子句的目的為何?",
             "a": [
                 {"option": "描述查詢條件",      "correct": true},
                 {"option": "列出處理時會參考到的表格名稱",     "correct": false},

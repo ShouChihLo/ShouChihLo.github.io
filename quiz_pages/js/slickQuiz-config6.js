@@ -39,7 +39,7 @@ var quizJSON = {
         { // Question 3 - Multiple Choice, Single True Answer
             "q": "下列何者不是網路連線的線材?",
             "a": [
-                {"option": "雙絞線快",      "correct": false},
+                {"option": "雙絞線",      "correct": false},
                 {"option": "光纖",     "correct": false},
                 {"option": "單芯電線",      "correct": true},
                 {"option": "同軸電纜",     "correct": false} // no comma here
@@ -268,7 +268,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 星型.</p>" // no comma here
         },
         { // Question 24 - Multiple Choice, Single True Answer
-            "q": "目前常用的IP第四版（即IPv4）,地址是由多少位元所組成?",
+            "q": "目前常用的IP第四版（即IPv4），其位址是由多少位元所組成?",
             "a": [
                 {"option": "4",      "correct": false},
                 {"option": "12",     "correct": false},
@@ -338,11 +338,11 @@ var quizJSON = {
             "a": [
                 {"option": "傳送資料不會遺失",      "correct": false},
                 {"option": "保證一定可以傳到對方",     "correct": false},
-                {"option": "它可以檢查以確認是否正確傳送否則會嘗試重傳多次",      "correct": false},
-                {"option": "要使用可靠的伺服器",     "correct": true} // no comma here
+                {"option": "它可以檢查以確認是否正確傳送否則會嘗試重傳多次",      "correct": true},
+                {"option": "要使用可靠的伺服器",     "correct": false} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 要使用可靠的伺服器.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 要使用可靠的伺服器.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 它可以檢查以確認是否正確傳送否則會嘗試重傳多次.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 它可以檢查以確認是否正確傳送否則會嘗試重傳多次.</p>" // no comma here
         }
     ]
 	

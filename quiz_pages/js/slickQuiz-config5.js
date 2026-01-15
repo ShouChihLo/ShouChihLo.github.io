@@ -1,4 +1,4 @@
-// Setup your quiz text and questions here
+/ Setup your quiz text and questions here
 
 // NOTE: pay attention to commas, IE struggles with those bad boys
 
@@ -86,7 +86,7 @@ var quizJSON = {
                 {"option": "記憶體分頁技術所使用的頁轉換表上可以加上一些特別的旗標（flag），藉由這些旗標可以指定各個分頁的存取權限",      "correct": false},
                 {"option": "記憶體分頁技術可以讓數個不同的程序共用同一塊記憶體，在某些情況下甚至可以公用程式區段及資料區段",     "correct": false},
                 {"option": "記憶體分頁技術及記憶體分頁保護技術，可以用以設計寫入時複製（copy on write）以提高系統效能",      "correct": false},
-                {"option": "通常越現金的處理器，所採用的分頁大小（page size）越小",     "correct": true} // no comma here
+                {"option": "通常越先進的處理器，所採用的分頁大小（page size）越小",     "correct": true} // no comma here
             ],
             "correct": "<p><span>答對!</span> 通常越現金的處理器，所採用的分頁大小（page size）越小.</p>",
             "incorrect": "<p><span>答錯.</span> 正確答案 : 通常越現金的處理器，所採用的分頁大小（page size）越小.</p>" // no comma here
@@ -107,7 +107,7 @@ var quizJSON = {
             "a": [
                 {"option": "目前大部分處理器所採用的記憶體管理單元採用記憶體分頁機制以管理實體記憶體 ",      "correct": false},
                 {"option": "為了更有效率，已計提管理單元往往需要搭配轉換查考緩衝區，否則記憶體的存取速度將慢上好幾倍。作業系統往往必須管理轉換查考緩衝區內的資料以避免在本文切換後記憶體轉換錯誤 ",     "correct": false},
-                {"option": "Interl的X86處理器的分頁大小可為4K大小或者4M大小",      "correct": false},
+                {"option": "Intel的X86處理器的分頁大小可為4K大小或者4M大小",      "correct": false},
                 {"option": "使用分頁技巧可以完全避免記憶體內部破碎的問題",     "correct": true} // no comma here
             ],
             "correct": "<p><span>答對!</span> 使用分頁技巧可以完全避免記憶體內部破碎的問題.</p>",

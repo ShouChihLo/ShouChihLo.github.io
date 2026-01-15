@@ -335,7 +335,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 8，6，4，2，0.</p>" // no comma here
         },
 		{ // Question 30 - Multiple Choice, Single True Answer
-            "q": "請問“電影院門前多位售票員在售票”，這一工作模式對應的費林分類的計算架構為?",
+            "q": "下列哪個程式碼可計算1至99所有的奇數總和?",
             "a": [
                 {"option": "int k, sum=0; for(k=1; k<=99; k++){if(k%2==0) sum+=k;}",      "correct": false},
                 {"option": "int k, sum=0;while(k<=99){k+=2;sum+=k;}",     "correct": false},

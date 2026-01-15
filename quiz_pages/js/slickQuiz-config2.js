@@ -4,7 +4,7 @@
 
 var quizJSON = {
     "info": {
-        "name":    "第一章 線上測驗",
+        "name":    "第二章 線上測驗",
         "main":    "<p>數字系統</p>",
         "results": "<h5>NDHU</h5><p>Reference_GitHub_SlickQuiz(https://github.com/jewlofthelotus/SlickQuiz)</p>",
         "level1":  "計算機概論 專家",
@@ -303,12 +303,12 @@ var quizJSON = {
             "q": "下列哪一個數字不是二進位數的表示法?",
             "a": [
                 {"option": "101",      "correct": false},
-                {"option": "1A",     "correct": false},
+                {"option": "1A",     "correct": true},
                 {"option": "1",      "correct": false},
                 {"option": "11001",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 11001.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 11001.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 1A.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 1A.</p>" // no comma here
         },
 		{ // Question 28 - Multiple Choice, Single True Answer
             "q": "四個位元的二進位可代表幾種狀況?",

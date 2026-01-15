@@ -59,7 +59,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 體積小.</p>" // no comma here
         },
         { // Question 5 - Multiple Choice, Single True Answer
-            "q": "將電腦區分為輸入、輸出、記憶、控制等單元，這種架構是誰提出?",
+            "q": "將電腦區分為輸入、輸出、記憶、處理等單元，這種架構是誰提出?",
             "a": [
                 {"option": "愛因斯坦",      "correct": false},
                 {"option": "范紐曼",     "correct": true},
@@ -84,12 +84,12 @@ var quizJSON = {
             "q": "將電腦分成第一代、第二代、第三代、第四代等等，劃分的依據為？",
             "a": [
                 {"option": "用途",      "correct": false},
-                {"option": "使用之電子元件",     "correct": false},
+                {"option": "使用之電子元件",     "correct": true},
                 {"option": "功能與速度",      "correct": false},
-                {"option": "發展的年代",     "correct": true} // no comma here
+                {"option": "發展的年代",     "correct": false} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 發展的年代.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 發展的年代.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 使用之電子元件.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 使用之電子元件.</p>" // no comma here
         },
 		{ // Question 8 - Multiple Choice, Single True Answer
             "q": "最早發明之第一代電腦，其主要元件為？",
@@ -114,7 +114,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 超大型積體電路.</p>" // no comma here
         },
 		{ // Question 10 - Multiple Choice, Single True Answer
-            "q": "世界第一部通用型電子計算機所採用的基本元件為何?",
+            "q": "世界第一部通用型電子計算機ENIAC所採用的基本元件為何?",
             "a": [
                 {"option": "超大型積體電路",      "correct": false},
                 {"option": "積體電路",     "correct": false},
@@ -138,13 +138,13 @@ var quizJSON = {
 		{ // Question 12 - Multiple Choice, Single True Answer
             "q": "下列關於電腦演進的敘述，何者正確?",
             "a": [
-                {"option": "第四代電腦只能執行第四代電腦語言",      "correct": true},
+                {"option": "第四代電腦只能執行第四代電腦語言",      "correct": false},
                 {"option": "第四代電腦比第三代電腦更耗電",     "correct": false},
-                {"option": "美國品過電腦公司的APPLE II屬於第二代電腦",      "correct": false},
-                {"option": "直到第四代電腦才開始使用微處理器",     "correct": false} // no comma here
+                {"option": "美國蘋果電腦公司的APPLE II屬於第二代電腦",      "correct": false},
+                {"option": "直到第四代電腦才開始使用微處理器",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 第四代電腦只能執行第四代電腦語言.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 第四代電腦只能執行第四代電腦語言.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 直到第四代電腦才開始使用微處理器.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 直到第四代電腦才開始使用微處理器.</p>" // no comma here
         },
 		{ // Question 13 - Multiple Choice, Single True Answer
             "q": "電腦最重要的系統軟體為何?",
@@ -202,7 +202,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 微電腦.</p>" // no comma here
         },
 		{ // Question 18 - Multiple Choice, Single True Answer
-            "q": "interl 80486 是幾位元微處理機?",
+            "q": "intel 80486 是幾位元微處理機?",
             "a": [
                 {"option": "32位元",      "correct": true},
                 {"option": "64位元",     "correct": false},
@@ -259,14 +259,15 @@ var quizJSON = {
 		{ // Question 23 - Multiple Choice, Single True Answer
             "q": "下列哪一項是正確的?",
             "a": [
-                {"option": "電腦可以提升人們的工作效率",      "correct": false},
-                {"option": "電腦可以幫助儲存資料卻無法篩選偶用資訊",     "correct": false},
+                {"option": "電腦可以提升人們的工作效率",      "correct": true},
+                {"option": "電腦可以幫助儲存資料卻無法篩選有用資訊",     "correct": false},
                 {"option": "電腦的資料來源僅從光碟片來取得",      "correct": false},
-                {"option": "當電腦輸出錯誤的資料代表電腦已經故障該換一台新的了",     "correct": true} // no comma here
+                {"option": "當電腦輸出錯誤的資料代表電腦已經故障該換一台新的了",     "correct": false} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 當電腦輸出錯誤的資料代表電腦已經故障該換一台新的了.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 當電腦輸出錯誤的資料代表電腦已經故障該換一台新的了.</p>" // no comma here
-        },{ // Question 24 - Multiple Choice, Single True Answer
+            "correct": "<p><span>答對!</span> 電腦可以提升人們的工作效率.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 電腦可以提升人們的工作效率.</p>" // no comma here
+        },
+        { // Question 24 - Multiple Choice, Single True Answer
             "q": "筆記型電腦屬於哪一種電腦類型?",
             "a": [
                 {"option": "嵌入式電腦",      "correct": false},

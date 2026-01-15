@@ -73,12 +73,12 @@ var quizJSON = {
             "q": "下列哪一個語音格式未經壓縮？",
             "a": [
                 {"option": "MPEG",      "correct": false},
-                {"option": "CDA",     "correct": true},
+                {"option": "WAV",     "correct": true},
                 {"option": "MP3",      "correct": false},
                 {"option": "MIDI",     "correct": false} // no comma here
             ],
-            "correct": "<p><span>答對!</span> CDA.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : CDA.</p>" // no comma here
+            "correct": "<p><span>答對!</span> WAV.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : WAV.</p>" // no comma here
         },
 		{ // Question 7 - Multiple Choice, Single True Answer
             "q": "在windows內的媒體播放程式（windows media player），無法播放下列哪一種格式的檔案？",
@@ -147,7 +147,7 @@ var quizJSON = {
             "incorrect": "<p><span>答錯.</span> 正確答案 : 交換碼.</p>" // no comma here
         },
 		{ // Question 13 - Multiple Choice, Single True Answer
-            "q": "Unicode可容納65536個字元符號，包括128個ASCII字元、英文、中文、日文及非英語系國家常用文字，其是利用多少位元來表示?",
+            "q": "Unicode可容納65536個字元符號，包括128個ASCII字元、英文、中文、日文及非英語系國家常用文字，其是利用多少位元組來表示?",
             "a": [
                 {"option": "1",      "correct": false},
                 {"option": "2 ",     "correct": true},
@@ -248,13 +248,13 @@ var quizJSON = {
 		{ // Question 22 - Multiple Choice, Single True Answer
             "q": "表示一個像素所需佔用的位元數，稱為?",
             "a": [
-                {"option": "像素",      "correct": true},
+                {"option": "像素",      "correct": false},
                 {"option": "影像大小",     "correct": false},
                 {"option": "解析度",      "correct": false},
-                {"option": "深度",     "correct": false} // no comma here
+                {"option": "深度",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 像素.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 像素.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 深度.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 深度.</p>" // no comma here
         },
 		{ // Question 23 - Multiple Choice, Single True Answer
             "q": "大五碼(Big-5)是?",
@@ -304,12 +304,12 @@ var quizJSON = {
             "q": "某些繪圖系統將紅綠藍三原色各自分為256個獨立等級，在此類系統中可混合產生多少種不同色彩?",
             "a": [
                 {"option": "256",      "correct": false},
-                {"option": "1024",     "correct": true},
+                {"option": "1024",     "correct": false},
                 {"option": "65536",      "correct": false},
-                {"option": "16777216",     "correct": false} // no comma here
+                {"option": "16777216",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 1024.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 1024.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 16777216.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 16777216.</p>" // no comma here
         },
 		{ // Question 28 - Multiple Choice, Single True Answer
             "q": "下列何者可以用來描述檔案的大小或硬碟的容量?",
@@ -337,12 +337,12 @@ var quizJSON = {
             "q": "下列何者指的是每個像素所能顯示的色彩數?",
             "a": [
                 {"option": "圖形尺寸",      "correct": false},
-                {"option": "解析度",     "correct": true},
+                {"option": "解析度",     "correct": false},
                 {"option": "列印尺寸",      "correct": false},
-                {"option": "色彩深度",     "correct": false} // no comma here
+                {"option": "色彩深度",     "correct": true} // no comma here
             ],
-            "correct": "<p><span>答對!</span> 解析度.</p>",
-            "incorrect": "<p><span>答錯.</span> 正確答案 : 解析度.</p>" // no comma here
+            "correct": "<p><span>答對!</span> 色彩深度.</p>",
+            "incorrect": "<p><span>答錯.</span> 正確答案 : 色彩深度.</p>" // no comma here
         }
     ]
 	
